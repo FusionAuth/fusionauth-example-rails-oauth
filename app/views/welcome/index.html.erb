@@ -1,0 +1,10 @@
+<h1>My Rails & FusionAuth App</h1>
+<% if logged_in? %>
+  Welcome <%= current_user %>.
+  <br/><br/>
+  Please proceed to do cool things!
+  <br/><br/>
+  <%= link_to 'Log Out', @logout_url %>
+<% else %>
+  <p>Welcome! Please <%= link_to 'sign in', @login_url %> </p>
+<% end %>
