@@ -1,8 +1,4 @@
 class OauthController < ApplicationController
-  def initialize
-    @redirect_uri = "http://localhost:3000/oauth2-callback"
-  end
-
   # The OAuth callback
   def oauth_callback
     code = params[:code]
@@ -15,7 +11,7 @@ class OauthController < ApplicationController
 
     # Make a call to exchange the authorization_code for an access_token
     token = client.auth_code.get_token(params[:code],
-                                       'redirect_uri': @redirect_uri)
+                                       'redirect_uri': redirect_uri)
 
     # Set the token on the user session
     session[:user_jwt] = { value: token.to_hash[:access_token], httponly: true }

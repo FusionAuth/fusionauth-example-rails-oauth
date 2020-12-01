@@ -29,4 +29,8 @@ class ApplicationController < ActionController::Base
     Rails.configuration.x.oauth.client_secret
   end
 
+  def redirect_uri
+    Rails.config.x.oauth.redirect_uri
+  end
+
 end

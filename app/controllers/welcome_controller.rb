@@ -12,7 +12,7 @@ class WelcomeController < ApplicationController
         client_id: client_id,
         client_secret: client_secret,
         response_type: "code",
-        redirect_uri: "http://localhost:3000/oauth2-callback"
+        redirect_uri: redirect_uri
     }.to_query
 
     @login_url = "#{idp_url}oauth2/authorize?#{query}"
