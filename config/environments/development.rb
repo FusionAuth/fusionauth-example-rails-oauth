@@ -66,5 +66,4 @@ Rails.application.configure do
   config.x.oauth.idp_url = "http://localhost:9011/"
   config.x.oauth.redirect_uri = "http://localhost:3000/oauth2-callback"
   config.x.oauth.hmac = ENV['HMAC_SECRET']
-  config.x.oauth.hmac = "5Oh3dGxOyEOWS7i/VmXW6QrhWlobHUnahM5psFh68fI="
 end
