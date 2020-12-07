@@ -61,8 +61,10 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # My custom stuff
-  config.x.oauth.client_id = "0353029d-823e-4db5-9115-c2a7552a3c43"
-  config.x.oauth.client_secret = "xSwKRodotHBqoVzwsCAWeIi9TLu9Clceqevbn77LwIY"
+  config.x.oauth.client_id = "3a3488a2-f67e-4a76-89c9-c1c39047c90e"
+  config.x.oauth.client_secret = "0ux9OOsJcGbs1E0IHf4VVEZZYeiBcflFppf6G271m0E"
   config.x.oauth.idp_url = "http://localhost:9011/"
   config.x.oauth.redirect_uri = "http://localhost:3000/oauth2-callback"
+  config.x.oauth.hmac = ENV['HMAC_SECRET']
+  config.x.oauth.hmac = "5Oh3dGxOyEOWS7i/VmXW6QrhWlobHUnahM5psFh68fI="
 end

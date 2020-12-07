@@ -4,11 +4,15 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if session[:user_jwt]
-      token = session[:user_jwt]
-      decoded = TokenService.decode(token["value"])
-      decoded.first["email"]
-    end
+      token = session[:user_jwt]["value"].first
 
+      if token && token["email_verified"]
+        @email = token["email"]
+      else
+        head :forbidden
+        return
+      end
+    end
   end
 
   def logged_in?
@@ -30,7 +34,12 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_uri
-    Rails.config.x.oauth.redirect_uri
+    Rails.configuration.x.oauth.redirect_uri
   end
 
+  private
+
+  def token_hash(token)
+    token["value"].first
+  end
 end
