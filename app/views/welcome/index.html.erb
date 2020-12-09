@@ -4,7 +4,7 @@
   <br/><br/>
   Please proceed to do cool things!
   <br/><br/>
-  <%= link_to 'Log Out', @logout_url %>
+  <%= link_to 'Log Out', controller: 'oauth', action: :logout %>
 <% else %>
-  <p>Welcome! Please <%= link_to 'sign in', @login_url %> </p>
+  <p>Welcome! Please <%= link_to 'sign in', controller: 'oauth', action: :login %> </p>
 <% end %>

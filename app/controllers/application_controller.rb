@@ -19,24 +19,6 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
-  protected
-
-  def idp_url
-    Rails.configuration.x.oauth.idp_url
-  end
-
-  def client_id
-    Rails.configuration.x.oauth.client_id
-  end
-
-  def client_secret
-    Rails.configuration.x.oauth.client_secret
-  end
-
-  def redirect_uri
-    Rails.configuration.x.oauth.redirect_uri
-  end
-
   private
 
   def token_hash(token)
