@@ -1,4 +1,4 @@
-class OauthController < ApplicationController
+class OAuthController < ApplicationController
   def initialize
     @oauth_client = OAuth2::Client.new(Rails.configuration.x.oauth.client_id,
                                        Rails.configuration.x.oauth.client_secret,
@@ -19,7 +19,8 @@ class OauthController < ApplicationController
     # Decode the token
     begin
       decoded = TokenDecoder.new(token, @oauth_client.id).decode
-    rescue
+    rescue Exception => error
+      "An unexpected exception occurred: #{error.inspect}"
       head :forbidden
       return
     end
