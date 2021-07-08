@@ -8,22 +8,37 @@ class TokenDecoder
 
   def decode
     begin
-      JWT.decode(
-          @token,
-          Rails.configuration.x.oauth.hmac,
-          true,
-          {
-              verify_iss: true,
-              iss: @iss,
-              verify_aud: true,
-              aud: @aud,
-              algorithm: 'HS256'})
+      jwt = JWT.decode(
+        @token,
+        Rails.configuration.x.oauth.hmac,
+        true,
+        {
+          verify_iss: true,
+          iss: @iss,
+          verify_aud: true,
+          aud: @aud,
+          algorithm: 'HS256'})
+      claims = jwt[0]
+      if claims["applicationId"] != @aud
+        # user is not registered
+        Rails.logger.warn("User not registered")
+        raise NotRegisteredError 
+      end
+      return jwt
     rescue JWT::VerificationError
-      puts "verification error"
+      Rails.logger.warn("Verification error")
       raise
     rescue JWT::DecodeError
-      puts "bad stuff happened"
+      Rails.logger.warn("Decode failed")
       raise
     end
   end
 end
+
+class NotRegisteredError < StandardError
+  def initialize(msg="User isn't registered")
+    super
+  end
+end
+
+
