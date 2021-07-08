@@ -34,13 +34,13 @@ class OAuthController < ApplicationController
     redirect_to root_path
   end
 
-  def logout
-    # Invalidate session with FusionAuth
-    @oauth_client.request(:get, 'oauth2/logout')
-
+  def endsession
     # Reset Rails session
     reset_session
+    redirect_to root_path
+  end
 
+  def logout
     redirect_to Rails.configuration.x.oauth.idp_url+"oauth2/logout?client_id="+Rails.configuration.x.oauth.client_id
   end
 
