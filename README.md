@@ -21,18 +21,12 @@ This assumes you already have a running FusionAuth instance, user and applicatio
 * Make sure you add http://localhost:3000/endsession as the logout URL
 * Save the application
 * Get the client id and client secret and update config/environments/development.rb 
+* Update the tenant's issuer by going to "Tenants" and editing your tenant. Go to the "General" tab and change the "Issuer" to be `fusionauth.io`. Save the tenant.
 * Register the user for the application
-* Get the HMAC secret used to sign the JWTs by going to Key Master in FusionAuth. Set the HMAC_SECRET environment variable to this value. 
-* Start the server: `HMAC_SECRET='2l...' rails s`
-* Visit localhost:3000 and log in.
-
 * Install dependencies
 ```
 bundle install
 ```
-
-* Start rails server
-```
-rails s
-```
-
+* Get the HMAC secret used to sign the JWTs by going to Key Master in FusionAuth. Set the HMAC_SECRET environment variable to this value.
+* Start the server: `HMAC_SECRET='2l...' rails s`
+* Visit localhost:3000 and log in.
