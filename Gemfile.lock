@@ -117,7 +117,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
-    rack-proxy (0.6.5)
+    rack-proxy (0.7.0)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -228,7 +228,7 @@ DEPENDENCIES
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
-  webpacker (~> 4.0)
+  webpacker (~> 4.3)
 
 RUBY VERSION
    ruby 2.7.1p83
