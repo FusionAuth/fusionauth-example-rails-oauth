@@ -1,3 +1,6 @@
+**This repo is out of date and is archived. Check out [an updated tutorial on using FusionAuth with Ruby on Rails](https://fusionauth.io/docs/quickstarts/quickstart-ruby-rails-web) or [the updated GitHub repository](https://github.com/FusionAuth/fusionauth-quickstart-ruby-on-rails-web).**
+
+
 # FusionAuth Ruby on Rails example
 
 This project contains the companion code for [How to securely implement OAuth in Ruby on Rails](https://fusionauth.io/blog/2020/12/14/how-to-securely-implement-oauth-rails/). It demonstrates how to integrate with FusionAuth's OAuth system using the Authorization Code grant.
